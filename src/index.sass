@@ -1,5 +1,7 @@
 @import 'components/index.sass'
 @import 'pages/styles.sass'
+@import 'theme_dark.sass'
+@import 'theme_light.sass'
 
 @font-face
   font-family: 'Montserrat'
@@ -10,14 +12,10 @@ html
 
 body
   margin: 0
-  padding-right: 9rem
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  background-color: #202020
-  color: white
   box-sizing: border-box
-
 
 code
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace
@@ -25,3 +23,39 @@ code
 h1,h2,h3,h4,h5,h6,p
   margin: 0
   line-height: 1
+
+.theme
+  padding-right: 9rem
+  min-height: 100vh
+
+.theme_light
+  background-color: #{$theme-light-background}
+
+  --button-text-primary: #{$theme-light-button-text-primary}
+  --button-text-secondary: #{$theme-light-button-text-secondary}
+
+  --button-background-primary: #{$theme-light-button-background-primary}
+  --button-background-secondary: #{$theme-light-button-background-secondary}
+
+  --button-border-primary: #{$theme-light-button-border-primary}
+
+  --text-primary: #{$theme-light-text-primary}
+  --text-secondary: #{$theme-light-text-secondary}
+
+  --input-placeholder_light: #{$theme-light-input-placeholder_light}
+
+.theme_dark
+  background-color: #{$theme-dark-background}
+
+  --button-text-primary: #{$theme-dark-button-text-primary}
+  --button-text-secondary: #{$theme-dark-button-text-secondary}
+
+  --button-background-primary: #{$theme-dark-button-background-primary}
+  --button-background-secondary: #{$theme-dark-button-background-secondary}
+
+  --button-border-primary: #{$theme-dark-button-border-primary}
+
+  --text-primary: #{$theme-dark-text-primary}
+  --text-secondary: #{$theme-dark-text-secondary}
+
+  --input-placeholder_light: #{$theme-dark-input-placeholder_light}

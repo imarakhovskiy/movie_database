@@ -1,5 +1,3 @@
-@import 'variables'
-
 .pagination
     display: flex
     padding-top: 3rem
@@ -7,7 +5,7 @@
     flex-direction: row-reverse
 
     &__current-page
-        color: $text-secondary
+        color: var(--text-secondary)
         font-size: 2rem
         display: inline
         margin-right: 3rem
@@ -15,7 +13,7 @@
 
     &__button
         svg
-            fill: $button-text-primary
+            fill: var(--button-text-primary)
         &_active
             svg
-                fill: $button-text-secondary
+                fill: var(--button-text-secondary)

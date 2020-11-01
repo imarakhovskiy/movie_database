@@ -18,7 +18,7 @@ export const Movie = () => {
   useEffect(() => {
     !detailedMovies.find((m) => m.imdbID === imdbID) &&
       getDetailedMovieInfoByImdbId(imdbID)
-  }, [])
+  }, [detailedMovies, getDetailedMovieInfoByImdbId, imdbID])
 
   const { title, year, runtime, genre, type, plot, imdbRating, poster } = useMemo(
     () => detailedMovies.find((m) => m.imdbID === imdbID) || {},
