@@ -1,0 +1,9 @@
+@import 'variables';
+
+.searchInput {
+    background: url(../../../../assets/icons/search_icon.svg) no-repeat;
+    background-color: $text-primary;
+    background-position: top 50% right 3rem;
+    padding-right: 5rem;
+    width: 30rem;
+}

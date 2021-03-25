@@ -1,0 +1,23 @@
+@import 'variables';
+
+.upcomingPoster {
+    display: flex;
+    justify-content: space-between;
+    padding: 15rem 5rem 15rem 14rem;
+    background: url(../../../../assets/images/dark_knight.jpeg) no-repeat;
+    background-size: cover;
+    font-weight: bold;
+    color: $text-primary;
+
+    .year {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+    }
+
+    .title {
+        font-size: 5rem;
+        line-height: 120%;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+}

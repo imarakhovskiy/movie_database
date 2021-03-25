@@ -1,0 +1,23 @@
+@import 'variables';
+
+.goBack {
+    display: flex;
+    align-items: center;
+
+    .backButton {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        padding: 0rem;
+
+        svg {
+            fill: $button-text-primary;
+        }
+    }
+
+    .text {
+        margin-left: 2rem;
+        font-weight: 500;
+        font-size: 2.4rem;
+    }
+}

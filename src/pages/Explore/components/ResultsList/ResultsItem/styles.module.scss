@@ -1,0 +1,29 @@
+@import 'variables';
+
+.resultsItem {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    line-height: 4.4rem;
+    color: $text-secondary;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+        color: $text-primary;
+        transform: scale(1.05);
+    }
+
+    .title {
+        font-size: 3.6rem;
+    }
+
+    .typeYear {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        text-align: right;
+
+        .year {
+            margin-bottom: 0.5rem;
+        }    
+    }
+}

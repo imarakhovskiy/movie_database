@@ -4,53 +4,73 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { HotModuleReplacementPlugin } = require("webpack")
 
 module.exports = {
-    mode: 'development',
     devServer: {
-        historyApiFallback: true,
-        contentBase: path.resolve(__dirname, './dist'),
-        open: true,
-        compress: true,
         hot: true,
         port: 8080,
     },
+    target: "web",
     entry: {
-        main: path.resolve(__dirname, './src/index.js'),
+      app: ["./src/index.ts"],
+      vendor: ["react", "react-dom"]
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: '[name].bundle.js',
-        publicPath: '/',
+        publicPath: "",
+      },
+    devtool: "source-map",
+    resolve: {
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+      alias: {
+        stream: "stream-browserify",
+        buffer: false,
+      },
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          loader: "ts-loader",
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: ["style-loader", "css-loader", "sass-loader"],
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          use: ["@svgr/webpack", "url-loader"],
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
+        {
+          enforce: "pre",
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          loader: "eslint-loader",
+          options: {
+            env: {
+              browser: true,
+              node: true,
+            },
+          },
+        },
+      ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './public/index.html'),
-        }),
+            template: "./public/index.html",
+          }),
         new CleanWebpackPlugin(),
         new HotModuleReplacementPlugin(),
     ],
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: ['babel-loader'],
-            },
-            {
-                test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
-              },
-              {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-              },
-            {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                use: ["@svgr/webpack", "url-loader"],
-            },
-            {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-                type: 'asset/inline',
-            },
-        ],
-    }   
 }
